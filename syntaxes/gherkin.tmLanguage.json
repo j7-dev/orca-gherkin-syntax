@@ -1,0 +1,149 @@
+{
+  "name": "Gherkin",
+  "scopeName": "text.gherkin.feature",
+  "patterns": [
+    { "include": "#language-directive" },
+    { "include": "#comment" },
+    { "include": "#tags" },
+    { "include": "#doc-string" },
+    { "include": "#table" },
+    { "include": "#section-header" },
+    { "include": "#step" }
+  ],
+  "repository": {
+    "language-directive": {
+      "match": "^\\s*(#)\\s*(language)\\s*(:)\\s*([A-Za-z0-9-]+)\\s*$",
+      "captures": {
+        "1": { "name": "comment.line.number-sign.gherkin punctuation.definition.comment.gherkin" },
+        "2": { "name": "keyword.other.language.gherkin" },
+        "3": { "name": "punctuation.separator.key-value.gherkin" },
+        "4": { "name": "constant.language.gherkin" }
+      }
+    },
+    "comment": {
+      "match": "^\\s*(#).*$",
+      "name": "comment.line.number-sign.gherkin",
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.gherkin" }
+      }
+    },
+    "tags": {
+      "begin": "^\\s*(?=@)",
+      "end": "$",
+      "patterns": [
+        {
+          "match": "@[^\\s@#]+",
+          "name": "entity.name.tag.gherkin"
+        },
+        {
+          "match": "\\s(#).*$",
+          "name": "comment.line.number-sign.gherkin"
+        }
+      ]
+    },
+    "doc-string": {
+      "begin": "^\\s*(\"\"\"|```)\\s*([A-Za-z0-9_+.-]*)\\s*$",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.string.begin.gherkin" },
+        "2": { "name": "entity.name.type.content-type.gherkin" }
+      },
+      "end": "^\\s*(\\1)\\s*$",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.string.end.gherkin" }
+      },
+      "name": "string.quoted.docstring.gherkin",
+      "patterns": [
+        { "include": "#placeholder" }
+      ]
+    },
+    "table": {
+      "begin": "^\\s*(?=\\|)",
+      "end": "$",
+      "name": "meta.table.gherkin",
+      "patterns": [
+        {
+          "match": "\\\\[|n\\\\]",
+          "name": "constant.character.escape.gherkin"
+        },
+        {
+          "match": "\\|",
+          "name": "punctuation.separator.table.gherkin"
+        },
+        { "include": "#placeholder" },
+        { "include": "#number" },
+        {
+          "match": "\\s(#).*$",
+          "name": "comment.line.number-sign.gherkin"
+        }
+      ]
+    },
+    "section-header": {
+      "match": "^\\s*(Feature|Business Need|Ability|Rule|Background|Scenario Outline|Scenario Template|Scenarios|Scenario|Examples|Example|功能|規則|规则|背景|場景大綱|场景大纲|劇本大綱|剧本大纲|場景|场景|劇本|剧本|例子)\\s*(:)(.*)$",
+      "captures": {
+        "1": { "name": "keyword.control.section.gherkin" },
+        "2": { "name": "punctuation.separator.key-value.gherkin" },
+        "3": {
+          "name": "entity.name.section.gherkin",
+          "patterns": [
+            { "include": "#placeholder" }
+          ]
+        }
+      }
+    },
+    "step": {
+      "begin": "^\\s*(?:(Given|When|Then|And|But|\\*)(?=\\s)|(假如|假設|假设|假定|當|当|那麼|那么|而且|並且|并且|同時|同时|但是))",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.step.gherkin" },
+        "2": { "name": "keyword.other.step.gherkin" }
+      },
+      "end": "$",
+      "name": "meta.step.gherkin",
+      "patterns": [
+        { "include": "#string" },
+        { "include": "#placeholder" },
+        { "include": "#number" }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"|$",
+          "name": "string.quoted.double.gherkin",
+          "patterns": [
+            { "match": "\\\\.", "name": "constant.character.escape.gherkin" },
+            { "include": "#placeholder" }
+          ]
+        },
+        {
+          "begin": "'",
+          "end": "'|$",
+          "name": "string.quoted.single.gherkin",
+          "patterns": [
+            { "include": "#placeholder" }
+          ]
+        },
+        {
+          "begin": "「",
+          "end": "」|$",
+          "name": "string.quoted.other.gherkin",
+          "patterns": [
+            { "include": "#placeholder" }
+          ]
+        }
+      ]
+    },
+    "placeholder": {
+      "match": "(<)([^<>\\r\\n]+)(>)",
+      "captures": {
+        "0": { "name": "variable.parameter.placeholder.gherkin" },
+        "1": { "name": "punctuation.definition.variable.begin.gherkin" },
+        "3": { "name": "punctuation.definition.variable.end.gherkin" }
+      }
+    },
+    "number": {
+      "match": "(?<![\\w.])-?\\d+(?:\\.\\d+)?(?![\\w.])",
+      "name": "constant.numeric.gherkin"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-plugin.v2.schema.json",
+  "manifestVersion": 2,
+  "execution": "data",
+  "id": "gherkin-syntax",
+  "name": "Gherkin",
+  "version": "0.1.0",
+  "description": "Syntax highlighting for Gherkin (.feature) files, with English and Chinese keywords.",
+  "engines": {
+    "orca": ">=1.4.246"
+  },
+  "contributes": {
+    "syntaxes": [
+      {
+        "id": "gherkin",
+        "title": "Gherkin",
+        "scopeName": "text.gherkin.feature",
+        "path": "syntaxes/gherkin.tmLanguage.json",
+        "configuration": "syntaxes/language-configuration.json",
+        "extensions": [".feature"]
+      }
+    ]
+  }
+}
