@@ -78,7 +78,7 @@
       ]
     },
     "section-header": {
-      "match": "^\\s*(Feature|Business Need|Ability|Rule|Background|Scenario Outline|Scenario Template|Scenarios|Scenario|Examples|Example|功能|規則|规则|背景|場景大綱|场景大纲|劇本大綱|剧本大纲|場景|场景|劇本|剧本|例子)\\s*(:)(.*)$",
+      "match": "^\\s*(Feature|Business Need|Ability|Rule|Background|Scenario Outline|Scenario Template|Scenarios|Scenario|Examples|Example|功能|規則|规则|背景|場景大綱|场景大纲|劇本大綱|剧本大纲|場景|场景|劇本|剧本|例子|Funcionalidade|Característica|Caracteristica|Regra|Contexto|Cenário de Fundo|Cenario de Fundo|Fundo|Esquema do Cenário|Esquema do Cenario|Delineação do Cenário|Delineacao do Cenario|Cenários|Cenarios|Cenário|Cenario|Exemplos|Exemplo)\\s*(:)(.*)$",
       "captures": {
         "1": { "name": "keyword.control.section.gherkin" },
         "2": { "name": "punctuation.separator.key-value.gherkin" },
@@ -91,7 +91,7 @@
       }
     },
     "step": {
-      "begin": "^\\s*(?:(Given|When|Then|And|But|\\*)(?=\\s)|(假如|假設|假设|假定|當|当|那麼|那么|而且|並且|并且|同時|同时|但是))",
+      "begin": "^\\s*(?:(Given|When|Then|And|But|Dados|Dadas|Dado|Dada|Quando|Então|Entao|Mas|E|\\*)(?=\\s)|(假如|假設|假设|假定|當|当|那麼|那么|而且|並且|并且|同時|同时|但是))",
       "beginCaptures": {
         "1": { "name": "keyword.other.step.gherkin" },
         "2": { "name": "keyword.other.step.gherkin" }

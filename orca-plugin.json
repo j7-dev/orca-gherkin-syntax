@@ -5,7 +5,7 @@
   "id": "gherkin-syntax",
   "name": "Gherkin",
   "version": "0.1.0",
-  "description": "Syntax highlighting for Gherkin (.feature) files, with English and Chinese keywords.",
+  "description": "Syntax highlighting for Gherkin (.feature) files, with English, Chinese and Portuguese keywords.",
   "engines": {
     "orca": ">=1.4.246"
   },

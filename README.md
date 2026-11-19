@@ -7,6 +7,7 @@ Highlights:
 - Section keywords: `Feature`, `Rule`, `Background`, `Scenario`, `Scenario Outline`, `Examples`, …
 - Step keywords: `Given`, `When`, `Then`, `And`, `But`, `*`
 - Chinese keywords (Traditional and Simplified): `功能`、`規則`、`背景`、`場景`、`場景大綱`、`例子`、`假設`、`當`、`那麼`、`而且`、`但是`, …
+- Portuguese keywords (Gherkin language code `pt`, also used for Brazilian Portuguese): `Funcionalidade`, `Regra`, `Contexto`, `Cenário`, `Esquema do Cenário`, `Exemplos`, `Dado`, `Quando`, `Então`, `E`, `Mas`, … (accent-less variants such as `Cenario` and `Entao` are supported too)
 - `@tags`, `# comments`, `# language:` directive
 - `"strings"`, `'strings'`, `「strings」`, `<placeholders>`, numbers
 - Data tables and doc strings (`"""` / ```` ``` ````, with optional content type)
